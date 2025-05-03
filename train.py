@@ -268,7 +268,7 @@ if __name__ == "__main__":
         import neptune
         project = "arighosh/bobcat"
         neptune.init(project_qualified_name=project,
-                     api_token=os.environ["NEPTUNE_API_TOKEN"])
+                     api_token=os.environ["eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI4ZmZjYTczOS1hMzY5LTQ2NzMtOTkzYi02MTg3YTA1YTg2OTAifQ=="])
         neptune_exp = neptune.create_experiment(
             name=params.file_name, send_hardware_metrics=False, params=vars(params))
 

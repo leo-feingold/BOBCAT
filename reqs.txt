@@ -1,0 +1,7 @@
+torch
+neptune-client
+numpy == 1.26.4
+pandas 
+scipy
+scikit-learn
+matplotlib

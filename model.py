@@ -71,7 +71,7 @@ class MAMLModel(nn.Module):
         env_states = {'obs_state': obs_state, 'train_mask': train_mask,
                       'action_mask': input_mask.clone()}
         return env_states
-    
+
 
     def step(self, env_states):
         obs_state,  train_mask = env_states[
