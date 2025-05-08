@@ -25,7 +25,7 @@ def proba(theta, d):
     """
     return sigmoid(theta - d)
 
-def generate_synthetic_data(n_students=500, n_questions=948, n_skills=10):
+def generate_synthetic_data(n_students=6400, n_questions=948, n_skills=1):
     """
     Generate synthetic data with single-skill questions
     
@@ -81,7 +81,7 @@ def generate_synthetic_data(n_students=500, n_questions=948, n_skills=10):
             })
             q_id += 1
     
-    # Generate response data in required format for BOBCAT
+    # Generate response data in required format for BOBCAT - JSON
     train_data = []
     
     for s in range(n_students):
@@ -210,25 +210,25 @@ def save_synthetic_data(synthetic_data, output_dir="data/synthetic"):
     print(f"Synthetic data saved to {output_dir}")
     return json_path
 
-def oracle_select_questions(student_abilities, question_data, available_mask, n_query=5):
+def oracle_questions(student_data, question_data, n_questions=20):
     """
-    Oracle strategy that selects questions based on skills
+    Creates a bank of optimal questions for each student based on their abilities.
+    This function is run only once to precompute the best questions.
     
     Args:
-        student_abilities: Student abilities across all skills
-        question_data: List of question parameters
-        available_mask: Binary mask of available questions (1=available)
-        n_query: Number of questions to select
+        student_data: Dictionary mapping student IDs to their ability estimates across skills
+        question_data: List of question parameters (difficulty, skill ID, etc.)
+        n_questions: Number of questions to select per student
         
     Returns:
-        List of selected question indices
+        Dictionary mapping student IDs to their optimal question sets
     """
-    pass
+    
 
 if __name__ == "__main__":
     # Generate synthetic data
     synthetic_data = generate_synthetic_data(
-        n_students=500, 
+        n_students=6400, 
         n_questions=948, 
         n_skills=10
     )
